@@ -1,0 +1,28 @@
+#titulo{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#nombre{
+    font-size: 40px;
+    color: rgb(43, 42, 42);
+    align-items: center;
+    text-align: center;
+    margin: 10px;
+    font-weight: bolder;
+}
+
+#derecha{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    margin: 10px;
+}
+
+#contador{
+    border: 1px solid grey;
+    margin-top: 10px;
+}

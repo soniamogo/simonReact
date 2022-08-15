@@ -1,0 +1,42 @@
+#juego{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    width: 250px;
+    height: 250px;
+}
+
+#arriba{
+    display: flex;
+}
+
+#abajo{
+    display: flex;
+}
+
+.boton{
+    width: 100px;
+    height: 100px;
+}
+
+#azul{
+    background-color: blue;
+    border-radius: 50px 50px 0 50px;
+}
+
+#verde{
+    background-color: green;
+    border-radius: 50px 0px 50px 50px;
+}
+
+#amarillo{
+    background-color: yellow;
+    border-radius: 0px 50px 50px 50px;
+}
+
+#rojo{
+    background-color: red;
+    border-radius: 50px 50px 50px 0;
+}
