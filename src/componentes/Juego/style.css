@@ -4,8 +4,8 @@
     justify-content: center;
     align-items: center;
     background-color: black;
-    width: 250px;
-    height: 250px;
+    width: 400px;
+    height: 400px;
 }
 
 #arriba{
@@ -17,8 +17,9 @@
 }
 
 .boton{
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
+    margin: 5px;
 }
 
 #azul{
@@ -27,7 +28,7 @@
 }
 
 #verde{
-    background-color: green;
+    background-color: rgb(42, 185, 42);
     border-radius: 50px 0px 50px 50px;
 }
 
@@ -39,4 +40,8 @@
 #rojo{
     background-color: red;
     border-radius: 50px 50px 50px 0;
+}
+
+.opacidad{
+    opacity:0.10;
 }

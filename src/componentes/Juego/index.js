@@ -1,19 +1,12 @@
 import React from 'react'
+import Seleccion from '../Seleccion'
 import './style.css'
 
-const Juego = () => {
+const Juego = ({secuencia, color}) => {
   return (
-    <div id="juego">
-        <div id='arriba'>
-            <div id='azul' className='boton'/>
-            <div id='rojo'className='boton'/>
-        </div>
-        <div id='abajo'>
-            <div id='verde'className='boton'/>
-            <div id='amarillo' className='boton'/>
-        </div>
-    </div>
-  )
-}
+    
+    <Seleccion secuencia={secuencia} color={color} />
+)}
+
 
 export default Juego
