@@ -1,7 +1,7 @@
 import React from 'react'
 import './style.css'
 
-const Titulo = () => {
+const Titulo = ({nivel, movesJugador}) => {
   return (
     <div id="titulo">
         <div id='nombre'>
@@ -9,7 +9,7 @@ const Titulo = () => {
         </div>
         <div id='derecha'>
             <div>Secuencia memorizada</div>
-            <div id='contador'>0</div>
+            <div id='contador'>{`${movesJugador} / ${nivel+1}`}</div>
         </div>
     </div>
   )

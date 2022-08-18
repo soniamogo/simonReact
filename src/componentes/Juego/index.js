@@ -2,10 +2,10 @@ import React from 'react'
 import Seleccion from '../Seleccion'
 import './style.css'
 
-const Juego = ({secuencia, color}) => {
+const Juego = ({color, handleClick}) => {
   return (
     
-    <Seleccion secuencia={secuencia} color={color} />
+    <Seleccion color={color} handleClick={handleClick}/>
 )}
 
 

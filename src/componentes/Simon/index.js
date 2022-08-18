@@ -18,27 +18,63 @@ export default class Simon extends Component {
       this.state = {
         secuencia:crearSecuencia(),
         secuenciaJugador: [],
+        showing: false,
+        nivel:0,
         color:'',
       }
   }
 
-  mostrarSecuencia = () => {
+  mostrarSecuencia = (index) =>{
+    this.mostrarJugada(index)
+    if(index<this.state.nivel){
+        setTimeout(()=>{
+            this.mostrarSecuencia(index+1)
+        }, 1000)
+    }
+  }
+
+  mostrarJugada = (index) => {
+    const color = this.state.secuencia[index]
     setTimeout(() => {
-      if(this.state.secuencia.length < this.state.secuenciaJugador.length +1){
-        this.state.secuencia.map(color => {
-          this.setState({color:color})
-        })
-      }
-    }, 1000)
-    console.log(`mostrando secuencia`)
+        let newShowing = index===this.state.nivel ? false : true;
+        this.setState({color:'', showing:newShowing})
+    }, 900)
+    this.setState({color:color, showing:true, secuenciaJugador:[]})
+  }
+
+  hacerMovimiento = (colorMove) =>{
+    let {secuenciaJugador, secuencia, nivel, color} = this.state;
+    if(!this.state.showing){
+        const newSecuenciaJugador = [...secuenciaJugador, colorMove];
+        setTimeout(()=>{
+            this.setState({color:''})
+        }, 300);
+        if(secuencia.slice(0,newSecuenciaJugador.length).every((elem,index)=> elem===newSecuenciaJugador[index])){
+            if(newSecuenciaJugador.length === nivel+1){
+                setTimeout(()=>{
+                    this.mostrarSecuencia(0)
+                }, 1000)
+                this.setState({nivel:nivel+1, secuenciaJugador:[], color:colorMove})
+            }else{
+                this.setState({secuenciaJugador:newSecuenciaJugador, color:colorMove})
+            }
+        }else{
+            setTimeout(()=>{
+                this.mostrarSecuencia(0)
+            }, 1000)
+            this.setState({secuenciaJugador:[], color:colorMove})
+        }
+    }
   }
 
     
   render() {
+    const {secuenciaJugador, showing, nivel, color} = this.state;
     return (
       <div id='pantalla'>
-        <Titulo/>
-        <Juego secuencia={this.state.secuencia} color={this.state.color}/>
+        <Titulo nivel={nivel} movesJugador={secuenciaJugador.length}/>
+        <Juego color={color} handleClick={this.hacerMovimiento}/>
+        {!showing && <button style={{marginTop:'20px', fontSize:'18px'}} onClick={()=>{this.mostrarSecuencia(0)}}>Mostrar secuencia</button>}
       </div>
     )
   }
